@@ -237,21 +237,17 @@ VITE_SCRAPERS_URL=http://localhost:8001/
    - The system automatically validates and processes the file
    - Download results as CSV for further analysis
 
-### RFQ Management
+### Catalogue Management
 
-1. **Access RFQ Manager**
-   - Navigate to the "RFQ Manager" tab
-   - Download templates for consistent data entry
+1. **Track Catalogue**
+   - View the part numbers available in the catalogue among multiple
+   suppliers
+   - Filter part numbers based on PNs, NSN, Min/Max Price, Date Sourced
+   - Add a part number to a watch list to update the data
 
-2. **Upload RFQ Data**
-   - Use the provided template format
-   - Upload CSV files with required columns
-   - Process and validate data automatically
-
-3. **Export Results**
-   - Generate comprehensive reports
-   - Export data in multiple formats
-   - Track RFQ status and progress
+2. **View Part Details**
+   - View details of the parts individually
+   - View all offers for the part number available across multiple suppliers
 
 ### Scrapers Management
 
@@ -275,17 +271,16 @@ VITE_SCRAPERS_URL=http://localhost:8001/
 ### Core Endpoints
 
 #### Parts Management
-- `GET /api/catalogue/` - List all parts with pagination
+- `GET /api/parts` - List all parts with pagination
 - `GET /api/catalogue/{id}/` - Get detailed part information
 - `POST /api/search-parts/` - Search parts by criteria
 - `POST /api/import/parts-prices/csv/` - Import parts data from CSV
 - `POST /api/import/parts/json/` - Import parts data from JSON
 
-#### RFQ Management
-- `GET /api/rfq/` - List RFQ records
-- `POST /api/rfq/` - Create new RFQ
-- `PUT /api/rfq/{id}/` - Update RFQ status
-- `GET /api/rfq/{id}/items/` - Get RFQ line items
+#### Catalogue Management
+- `GET /jas_app/catalogue/?page=1` Get full catalogue (40 line items per page)
+- `GET /jas_app/catalogue/{id}` Get Part number details by id
+- `GET /jas_app/catalogue/?limit=10&offset=20` Pagination Control
 
 #### Scrapers Integration
 - `GET /scrapers/status/` - Get scraper status
